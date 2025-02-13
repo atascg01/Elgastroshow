@@ -1,0 +1,19 @@
+---
+import { Image } from "astro:assets";
+import logo from "../assets/logo.png";
+---
+
+<div class="logo-container">
+  <Image class="logo" src={logo} alt="El Gastro Show" />
+</div>
+
+<style>
+  .logo {
+    border-radius: 9999px;
+  }
+  .logo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+</style>

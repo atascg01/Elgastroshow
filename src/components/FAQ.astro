@@ -1,0 +1,51 @@
+---
+const faqs = [
+  {
+    question: "¿Cuál es la duración del evento?",
+    answer:
+      "El evento tiene una duración aproximada de 3 horas, comenzando con la comida a las 14:00, durante la cual transcurrirá el espectáculo y actividades.",
+  },
+  {
+    question: "¿Hay menú infantil disponible?",
+    answer: "Sí, ofrecemos un menú especialmente diseñado para niños.",
+  },
+  {
+    question: "¿Puedo tomar fotos con los personajes?",
+    answer: "¡Por supuesto! Tendrás tiempo para fotos con los personajes.",
+  },
+  {
+    question: "¿Dónde se encuentra el Olímpico de León?",
+    answer: "En la Calle Justino Azcarate, 1, 24008 León.",
+  },
+  {
+    question: "¿Habrá opciones para personas con alergias alimentarias?",
+    answer:
+      "Contamos con opciones especiales bajo petición previa. Enviad un correo a info@elgastroshow.com con el nombre y la intolerancia o alergia.",
+  },
+  {
+    question:
+      "¿Dónde puedo obtener más información o resolver otras dudas sobre el evento?",
+    answer:
+      "Puedes contactarnos a través de nuestro correo electrónico info@elgastroshow.com o enviarnos un mensaje en nuestro Instagram @elgastroshow",
+  },
+];
+---
+
+<section class="py-20 bg-white">
+  <div class="container mx-auto px-4">
+    <h2 class="text-4xl font-bold text-center mb-16">Resolvemos tus dudas</h2>
+
+    <div class="max-w-3xl mx-auto">
+      {
+        faqs.map((faq) => (
+          <details class="mb-4 bg-gray-50 rounded-lg">
+            <summary class="p-4 font-semibold cursor-pointer hover:bg-gray-100 transition-colors duration-200">
+              {faq.question}
+            </summary>
+            <p class="p-4 text-gray-600">{faq.answer}</p>
+          </details>
+        ))
+      }
+    </div>
+  </div>
+</section>

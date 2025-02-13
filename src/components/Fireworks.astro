@@ -1,0 +1,42 @@
+---
+---
+<div class="fireworks-container"></div>
+
+<script>
+  import confetti from 'canvas-confetti';
+
+  function createFirework() {
+    const colors = ['#FF4B91', '#4CACBC', '#FFD700', '#FF69B4', '#00FF00'];
+    
+    confetti({
+      particleCount: 100,
+      spread: 70,
+      origin: { y: 0.9, x: Math.random() },
+      colors: colors.sort(() => Math.random() - 0.5).slice(0, 2),
+      startVelocity: 30,
+      gravity: 0.5,
+      shapes: ['circle', 'square'],
+      ticks: 200
+    });
+  }
+
+  function startFireworks() {
+    createFirework();
+    setInterval(createFirework, 2000);
+  }
+
+  // Start fireworks after a short delay
+  setTimeout(startFireworks, 1000);
+</script>
+
+<style>
+  .fireworks-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1000;
+  }
+</style>

@@ -1,0 +1,49 @@
+---
+const features = [
+  {
+    title: "El Show",
+    description:
+      "Disfruta de las mejores canciones de Disney de todos los tiempos, interpretadas por un artista en directo. Vive un espectáculo mágico con música y animación para toda la familia.",
+    image: "https://images.unsplash.com/photo-1501612780327-45045538702b?q=80",
+  },
+  {
+    title: "El Menú",
+    description:
+      "Una comida deliciosa pensada para grandes y pequeños, con sabores que encantarán y sorprenderán a todos los asistentes.",
+    image: "https://images.unsplash.com/photo-1555244162-803834f70033?q=80",
+  },
+  {
+    title: "La Experiencia",
+    description:
+      "!Diversión garantizada! Animación, juegos, pintacaras y sus personajes favoritos estarán listos para crear recuerdos inolvidables junto a tus hijos.",
+    image: "https://images.unsplash.com/photo-1517457373958-b7bdd4587205?q=80",
+  },
+];
+---
+
+<section class="py-20 bg-white">
+  <div class="container mx-auto px-4">
+    <h2 class="text-4xl font-bold text-center mb-16">
+      ¡Bienvenidos al GastroShow! 🎶 Una experiencia en León para toda la
+      familia
+    </h2>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      {
+        features.map((feature) => (
+          <div class="bg-white rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-200">
+            <img
+              src={feature.image}
+              alt={feature.title}
+              class="w-full h-48 object-cover"
+            />
+            <div class="p-6">
+              <h3 class="text-xl font-semibold mb-2">{feature.title}</h3>
+              <p class="text-gray-600">{feature.description}</p>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
