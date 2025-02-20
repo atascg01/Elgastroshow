@@ -1,4 +1,7 @@
 ---
+import Analytics from "@vercel/analytics/astro";
+import SpeedInsights from "@vercel/speed-insights/astro";
+
 interface Props {
   title?: string;
 }
@@ -14,7 +17,12 @@ const { title = "El Gastro Show" } = Astro.props;
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
-    <meta name="description" content="¡Una experiencia en León para toda la familia!" />
+    <meta
+      name="description"
+      content="¡Una experiencia en León para toda la familia!"
+    />
+    <Analytics />
+    <SpeedInsights />
   </head>
   <body class="font-poppins">
     <slot />

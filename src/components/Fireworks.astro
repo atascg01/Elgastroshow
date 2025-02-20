@@ -1,13 +1,15 @@
 ---
+
 ---
+
 <div class="fireworks-container"></div>
 
 <script>
-  import confetti from 'canvas-confetti';
+  import confetti from "canvas-confetti";
 
   function createFirework() {
-    const colors = ['#FF4B91', '#4CACBC', '#FFD700', '#FF69B4', '#00FF00'];
-    
+    const colors = ["#FF4B91", "#4CACBC", "#FFD700", "#FF69B4", "#00FF00"];
+
     confetti({
       particleCount: 100,
       spread: 70,
@@ -15,14 +17,14 @@
       colors: colors.sort(() => Math.random() - 0.5).slice(0, 2),
       startVelocity: 30,
       gravity: 0.5,
-      shapes: ['circle', 'square'],
-      ticks: 200
+      shapes: ["circle", "square"],
+      ticks: 200,
     });
   }
 
   function startFireworks() {
     createFirework();
-    setInterval(createFirework, 2000);
+    setInterval(createFirework, 5000);
   }
 
   // Start fireworks after a short delay
