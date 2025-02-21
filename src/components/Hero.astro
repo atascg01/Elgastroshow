@@ -1,14 +1,14 @@
 ---
 import Logo from "./Logo.astro";
-import cartel from "../assets/cartel.jpg";
+import backgroundImg from "../assets/background-img.jpg";
 ---
 
 <section class="relative w-full min-h-screen flex items-center justify-center">
   <!-- Background Image -->
   <div class="absolute inset-0">
     <img
-      src={cartel.src}
-      alt="ElGastroShow cartel"
+      src={backgroundImg.src}
+      alt="Imagen de fondo"
       class="w-full h-full object-cover"
     />
     <!-- Dark Overlay -->
@@ -21,7 +21,8 @@ import cartel from "../assets/cartel.jpg";
       <Logo />
     </div>
     <a
-      href="#tickets"
+      href="https://www.ctickets.es/eventos/eventos-consentido/7999-reserva-gastroshow-edicion-disney-leon"
+      target="_blank"
       class="inline-block bg-white text-primary font-semibold px-6 md:px-8 py-3 md:py-4 rounded-full text-base md:text-lg transform hover:scale-105 transition-transform duration-200"
     >
       Conseguir mis entradas

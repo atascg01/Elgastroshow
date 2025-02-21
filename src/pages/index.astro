@@ -6,6 +6,8 @@ import Gallery from "../components/Gallery.astro";
 import FAQ from "../components/FAQ.astro";
 import CallToAction from "../components/CallToAction.astro";
 import Fireworks from "../components/Fireworks.astro";
+import Footer from "../components/Footer.astro";
+import ScrollToTop from "../components/ScrollToTop.astro";
 import "@fontsource/poppins/400.css";
 import "@fontsource/poppins/600.css";
 import "@fontsource/poppins/700.css";
@@ -14,10 +16,12 @@ import "@fontsource/poppins/700.css";
 <Layout>
   <main>
     <Fireworks />
+    <ScrollToTop />
     <Hero />
     <Features />
     <Gallery />
     <FAQ />
     <CallToAction />
   </main>
+  <Footer />
 </Layout>
