@@ -1,4 +1,7 @@
 ---
+import Analytics from "@vercel/analytics/astro";
+import SpeedInsights from "@vercel/speed-insights/astro";
+
 interface Props {
   title?: string;
 }
@@ -18,6 +21,8 @@ const { title = "El Gastro Show" } = Astro.props;
       name="description"
       content="¡Una experiencia en León para toda la familia!"
     />
+    <Analytics />
+    <SpeedInsights />
   </head>
   <body class="font-poppins">
     <slot />
@@ -25,92 +30,7 @@ const { title = "El Gastro Show" } = Astro.props;
 </html>
 
 <style is:global>
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-      transform: translateY(20px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  @keyframes scaleIn {
-    from {
-      transform: scale(0.95);
-      opacity: 0;
-    }
-    to {
-      transform: scale(1);
-      opacity: 1;
-    }
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    *,
-    ::before,
-    ::after {
-      animation-duration: 0.01ms !important;
-      animation-iteration-count: 1 !important;
-      transition-duration: 0.01ms !important;
-      scroll-behavior: auto !important;
-    }
-  }
-
   html {
     scroll-behavior: smooth;
   }
-
-  .animate-on-scroll {
-    opacity: 0;
-    transform: translateY(20px);
-    transition:
-      opacity 0.6s ease-out,
-      transform 0.6s ease-out;
-  }
-
-  .animate-on-scroll.is-visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  .scale-on-scroll {
-    opacity: 0;
-    transform: scale(0.95);
-    transition:
-      opacity 0.6s ease-out,
-      transform 0.6s ease-out;
-  }
-
-  .scale-on-scroll.is-visible {
-    opacity: 1;
-    transform: scale(1);
-  }
 </style>
-
-<script>
-  // Intersection Observer for scroll animations
-  const observerOptions = {
-    root: null,
-    rootMargin: "0px",
-    threshold: 0.1,
-  };
-
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("is-visible");
-      }
-    });
-  }, observerOptions);
-
-  // Observe all animated elements
-  document.addEventListener("astro:page-load", () => {
-    document
-      .querySelectorAll(".animate-on-scroll, .scale-on-scroll")
-      .forEach((element) => {
-        observer.observe(element);
-      });
-  });
-</script>
