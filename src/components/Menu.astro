@@ -1,0 +1,334 @@
+---
+
+---
+
+<section class="menu-section py-24 relative overflow-hidden">
+  <div class="magical-bg"></div>
+  <div class="container mx-auto px-4 relative z-10">
+    <h2 class="text-5xl font-bold text-center mb-24 magical-title">
+      Nuestro Menú Mágico
+    </h2>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+      <!-- Adult Menu -->
+      <div class="menu-card">
+        <div class="menu-card-inner">
+          <h3 class="text-3xl font-bold text-center mb-10 gradient-text">
+            Menú de Adultos
+          </h3>
+
+          <div class="space-y-8">
+            <div class="menu-item">
+              <h4 class="text-xl font-semibold text-indigo-900 mb-3">
+                Primer Entrante
+              </h4>
+              <p class="text-gray-700">
+                Mini hojaldre de ratatouille sobre crema de pimientos asados
+                confitados
+              </p>
+            </div>
+
+            <div class="menu-item">
+              <h4 class="text-xl font-semibold text-indigo-900 mb-3">
+                Segundo Entrante
+              </h4>
+              <p class="text-gray-700">
+                Mini canelón de ternera sobre crema de calabaza asada y ligero
+                de bechamel
+              </p>
+            </div>
+
+            <div class="menu-item">
+              <h4 class="text-xl font-semibold text-indigo-900 mb-3">
+                Primer Plato
+              </h4>
+              <p class="text-gray-700">
+                Tacos de bacalao en tempura con alioli de manzana y tomatitos
+                asados
+              </p>
+            </div>
+
+            <div class="menu-item">
+              <h4 class="text-xl font-semibold text-indigo-900 mb-3">
+                Segundo Plato
+              </h4>
+              <p class="text-gray-700">
+                Ragout de ternera con verduritas y patatas asadas
+              </p>
+            </div>
+
+            <div class="menu-item">
+              <h4 class="text-xl font-semibold text-indigo-900 mb-3">Postre</h4>
+              <p class="text-gray-700">Tarta de la abuela</p>
+            </div>
+
+            <div class="menu-item">
+              <h4 class="text-xl font-semibold text-indigo-900 mb-3">
+                Bebidas
+              </h4>
+              <p class="text-gray-700">Vino, agua y gaseosa</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Children's Menu -->
+      <div class="menu-card kids-menu">
+        <div class="menu-card-inner">
+          <div class="kids-menu-header">
+            <h3 class="text-3xl font-bold text-center mb-6 gradient-text-alt">
+              Menú Infantil
+            </h3>
+            <p class="text-center text-gray-600 mb-10">
+              ¡Una experiencia mágica para los más pequeños!
+            </p>
+          </div>
+
+          <div class="space-y-12">
+            <div class="menu-item kids-item">
+              <div class="kids-item-icon">🍝</div>
+              <div>
+                <h4 class="text-xl font-semibold text-indigo-900 mb-3">
+                  Primer Plato
+                </h4>
+                <p class="text-gray-700">Espaguetis con albóndigas</p>
+                <span class="kids-item-detail">¡Como en la película!</span>
+              </div>
+            </div>
+
+            <div class="menu-item kids-item">
+              <div class="kids-item-icon">🍗</div>
+              <div>
+                <h4 class="text-xl font-semibold text-indigo-900 mb-3">
+                  Segundo Plato
+                </h4>
+                <p class="text-gray-700">Filete de pollo con patatas</p>
+                <span class="kids-item-detail">Crujiente y delicioso</span>
+              </div>
+            </div>
+
+            <div class="menu-item kids-item">
+              <div class="kids-item-icon">🎂</div>
+              <div>
+                <h4 class="text-xl font-semibold text-indigo-900 mb-3">
+                  Postre
+                </h4>
+                <p class="text-gray-700">Tarta de chocolate de Mickey Mouse</p>
+                <span class="kids-item-detail">¡Para un final mágico!</span>
+              </div>
+            </div>
+
+            <div class="menu-item kids-item">
+              <div class="kids-item-icon">🥤</div>
+              <div>
+                <h4 class="text-xl font-semibold text-indigo-900 mb-3">
+                  Bebidas
+                </h4>
+                <p class="text-gray-700">Agua, refrescos y zumos</p>
+                <span class="kids-item-detail">¡Bebidas divertidas!</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="kids-menu-decoration">
+            <div class="magical-stars"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .menu-section {
+    background: linear-gradient(135deg, #f6f8ff 0%, #f0f4ff 100%);
+  }
+
+  .magical-bg {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(
+        circle at 20% 20%,
+        rgba(147, 197, 253, 0.15) 0%,
+        transparent 50%
+      ),
+      radial-gradient(
+        circle at 80% 80%,
+        rgba(196, 181, 253, 0.15) 0%,
+        transparent 50%
+      );
+    pointer-events: none;
+  }
+
+  .magical-title {
+    background: linear-gradient(135deg, #4338ca 0%, #7c3aed 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    position: relative;
+    padding-bottom: 0.2em;
+  }
+
+  .magical-title::after {
+    content: "";
+    position: absolute;
+    width: 80px;
+    height: 4px;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    background: linear-gradient(90deg, #4338ca, #7c3aed);
+    border-radius: 2px;
+  }
+
+  .menu-card {
+    position: relative;
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+    border-radius: 24px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+  }
+
+  .menu-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      45deg,
+      rgba(147, 197, 253, 0.1),
+      rgba(196, 181, 253, 0.1)
+    );
+    border-radius: 24px;
+    z-index: 0;
+  }
+
+  .menu-card:hover {
+    transform: translateY(-8px);
+    box-shadow:
+      0 20px 40px -15px rgba(67, 56, 202, 0.1),
+      0 0 20px rgba(124, 58, 237, 0.1);
+  }
+
+  .menu-card-inner {
+    position: relative;
+    padding: 2.5rem;
+    z-index: 1;
+  }
+
+  .gradient-text {
+    background: linear-gradient(135deg, #4338ca 0%, #7c3aed 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .gradient-text-alt {
+    background: linear-gradient(135deg, #7c3aed 0%, #ec4899 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .menu-item {
+    position: relative;
+    padding: 1rem;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.5);
+    transition: all 0.3s ease;
+  }
+
+  .menu-item:hover {
+    background: rgba(255, 255, 255, 0.8);
+    transform: translateX(8px);
+  }
+
+  /* Kids Menu Specific Styles */
+  .kids-menu {
+    background: linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.9),
+      rgba(255, 255, 255, 0.8)
+    );
+  }
+
+  .kids-item {
+    display: flex;
+    gap: 1.5rem;
+    align-items: flex-start;
+    padding: 1.5rem;
+    background: rgba(255, 255, 255, 0.7);
+  }
+
+  .kids-item-icon {
+    font-size: 2rem;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 50%;
+    box-shadow: 0 4px 12px rgba(124, 58, 237, 0.1);
+  }
+
+  .kids-item-detail {
+    display: block;
+    font-size: 0.9rem;
+    color: #7c3aed;
+    margin-top: 0.5rem;
+    font-style: italic;
+  }
+
+  .kids-menu-decoration {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: -1;
+  }
+
+  .magical-stars {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: radial-gradient(
+        2px 2px at 20px 30px,
+        #ecc94b,
+        rgba(0, 0, 0, 0)
+      ),
+      radial-gradient(2px 2px at 40px 70px, #f6ad55, rgba(0, 0, 0, 0)),
+      radial-gradient(2px 2px at 50px 160px, #ecc94b, rgba(0, 0, 0, 0)),
+      radial-gradient(2px 2px at 90px 40px, #f6ad55, rgba(0, 0, 0, 0)),
+      radial-gradient(2px 2px at 130px 80px, #ecc94b, rgba(0, 0, 0, 0));
+    background-repeat: repeat;
+    animation: stars 4s linear infinite;
+    opacity: 0.3;
+  }
+
+  @keyframes stars {
+    from {
+      transform: translateY(0);
+    }
+    to {
+      transform: translateY(-100px);
+    }
+  }
+
+  @keyframes shimmer {
+    0% {
+      background-position: -1000px 0;
+    }
+    100% {
+      background-position: 1000px 0;
+    }
+  }
+
+  .menu-card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      60deg,
+      transparent,
+      rgba(255, 255, 255, 0.1),
+      transparent
+    );
+    background-size: 200% 100%;
+    animation: shimmer 3s infinite linear;
+    pointer-events: none;
+  }
+</style>
