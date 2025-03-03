@@ -1,6 +1,10 @@
 ---
 import Analytics from "@vercel/analytics/astro";
 import SpeedInsights from "@vercel/speed-insights/astro";
+import Navbar from "../components/Navbar.astro";
+import "@fontsource/poppins/400.css";
+import "@fontsource/poppins/600.css";
+import "@fontsource/poppins/700.css";
 
 interface Props {
   title?: string;
@@ -25,10 +29,11 @@ const { title = "El GastroShow" } = Astro.props;
     <SpeedInsights />
     <link
       rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
   </head>
-  <body class="font-poppins">
+  <body class="font-poppins pt-16">
+    <Navbar />
     <slot />
   </body>
 </html>

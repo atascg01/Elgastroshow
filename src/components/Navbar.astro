@@ -1,0 +1,115 @@
+---
+const navItems = [
+  { href: "/", text: "Inicio" },
+  { href: "/menu", text: "Menú" },
+];
+---
+
+<nav class="bg-white/90 backdrop-blur-md shadow-sm fixed w-full top-0 z-50">
+  <div class="container mx-auto px-4">
+    <div class="flex justify-between items-center h-16">
+      <div class="flex-shrink-0">
+        <a href="/" class="flex items-center">
+          <img
+            src="/gastroshow-logo.png"
+            alt="El GastroShow Logo"
+            class="h-12 w-auto transition-transform duration-300 hover:scale-105"
+          />
+        </a>
+      </div>
+
+      <div class="hidden md:block">
+        <div class="ml-10 flex items-center space-x-4">
+          {
+            navItems.map((item) => (
+              <a
+                href={item.href}
+                class="text-gray-700 hover:text-primary px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200"
+              >
+                {item.text}
+              </a>
+            ))
+          }
+
+          <a
+            href="https://www.ctickets.es/eventos/eventos-consentido/7999-reserva-gastroshow-edicion-dibujos-animados-leon"
+            target="_blank"
+            class="bg-primary text-white hover:bg-primary/90 px-4 py-2 rounded-md text-sm font-medium transition-colors duration-200 ml-4"
+          >
+            Comprar entradas
+          </a>
+        </div>
+      </div>
+
+      <div class="md:hidden">
+        <button
+          id="mobile-menu-button"
+          class="text-gray-700 hover:text-primary"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-6 w-6"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile menu, hidden by default -->
+  <div id="mobile-menu" class="hidden md:hidden bg-white shadow-md">
+    <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+      {
+        navItems.map((item) => (
+          <a
+            href={item.href}
+            class="text-gray-700 hover:text-primary block px-3 py-2 rounded-md text-base font-medium"
+          >
+            {item.text}
+          </a>
+        ))
+      }
+
+      <a
+        href="https://www.ctickets.es/eventos/eventos-consentido/7999-reserva-gastroshow-edicion-dibujos-animados-leon"
+        target="_blank"
+        class="bg-primary text-white hover:bg-primary/90 block px-3 py-2 rounded-md text-base font-medium mt-4"
+      >
+        Comprar entradas
+      </a>
+    </div>
+  </div>
+</nav>
+
+<script>
+  // Toggle mobile menu
+  const mobileMenuButton = document.getElementById("mobile-menu-button");
+  const mobileMenu = document.getElementById("mobile-menu");
+
+  if (mobileMenuButton && mobileMenu) {
+    mobileMenuButton.addEventListener("click", () => {
+      mobileMenu.classList.toggle("hidden");
+    });
+  }
+
+  // Close mobile menu when clicking outside
+  document.addEventListener("click", (event) => {
+    if (mobileMenu && !mobileMenu.classList.contains("hidden")) {
+      const isClickInside =
+        mobileMenuButton?.contains(event.target as Node) ||
+        mobileMenu.contains(event.target as Node);
+
+      if (!isClickInside) {
+        mobileMenu.classList.add("hidden");
+      }
+    }
+  });
+</script>

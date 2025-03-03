@@ -1,0 +1,36 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Menu from "../components/Menu.astro";
+import Footer from "../components/Footer.astro";
+import ScrollToTop from "../components/ScrollToTop.astro";
+---
+
+<Layout title="Menú - El Gastro Show">
+  <div class="flex flex-col min-h-screen">
+    <main class="flex-grow">
+      <ScrollToTop />
+      <div class="py-8 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <a
+          href="/"
+          class="inline-flex items-center text-indigo-600 hover:text-indigo-800 transition-colors mb-8"
+        >
+          Volver a inicio
+        </a>
+        <Menu />
+      </div>
+    </main>
+    <Footer />
+  </div>
+</Layout>
+
+<style>
+  /* Asegura que el contenido principal ocupe al menos el espacio disponible en la ventana */
+  .min-h-screen {
+    min-height: 100vh;
+  }
+
+  /* Permite que el contenido principal crezca para ocupar el espacio disponible */
+  .flex-grow {
+    flex-grow: 1;
+  }
+</style>
