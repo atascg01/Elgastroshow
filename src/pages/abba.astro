@@ -1,0 +1,219 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Footer from "../components/Footer.astro";
+import ScrollToTop from "../components/ScrollToTop.astro";
+---
+
+<Layout title="ABBA Show - El Gastro Show">
+  <div class="min-h-screen flex flex-col disco-bg">
+    <main class="flex-grow py-16">
+      <div class="container mx-auto px-4">
+        <div class="max-w-3xl mx-auto">
+          <div class="text-center mb-12">
+            <h1 class="text-6xl font-bold mb-6 abba-title">
+              Dancing Queen Night
+            </h1>
+            <p class="text-2xl text-gray-300 mb-8">
+              ¡Una noche mágica con la mejor música de ABBA!
+            </p>
+          </div>
+
+          <div
+            class="bg-white/90 backdrop-blur-md rounded-2xl shadow-xl p-8 mb-12 disco-card"
+          >
+            <form
+              id="abbaForm"
+              class="space-y-6"
+              action="https://formspree.io/f/xgvavbby"
+              method="POST"
+            >
+              <div>
+                <label
+                  for="email"
+                  class="block text-lg font-medium text-gray-700 mb-2"
+                >
+                  Tu correo electrónico
+                </label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  required
+                  class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-gold focus:border-transparent transition duration-200"
+                  placeholder="nombre@ejemplo.com"
+                />
+                <p id="emailError" class="mt-2 text-red-600 hidden">
+                  Por favor, introduce un correo electrónico válido
+                </p>
+              </div>
+
+              <button
+                type="submit"
+                class="w-full bg-gold text-white py-3 px-6 rounded-lg text-lg font-semibold hover:bg-gold-dark transition duration-300 transform hover:scale-105 shadow-lg hover:shadow-yellow-500/50"
+              >
+                ¡No te quedes sin tus entradas!
+              </button>
+            </form>
+
+            <div
+              id="successMessage"
+              class="hidden mt-6 p-4 bg-green-100 text-green-700 rounded-lg text-center transition-opacity duration-500"
+            >
+              ¡Gracias por tu interés! Pronto recibirás más información.
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <Footer />
+  </div>
+</Layout>
+
+<style>
+  /* Fondo animado tipo disco */
+  .disco-bg {
+    background: radial-gradient(circle, rgba(20, 20, 20, 0.8) 0%, black 100%);
+    animation: discoLight 8s infinite alternate;
+  }
+
+  @keyframes discoLight {
+    0% {
+      background: radial-gradient(circle, rgba(50, 50, 50, 0.8), black);
+    }
+    100% {
+      background: radial-gradient(circle, rgba(100, 100, 100, 0.9), black);
+    }
+  }
+
+  /* Estilo del título */
+  .abba-title {
+    font-family: "Poppins", sans-serif;
+    background: linear-gradient(135deg, #ffd700 0%, #ffa500 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.8);
+    animation: glow 1.5s infinite alternate;
+  }
+
+  @keyframes glow {
+    0% {
+      text-shadow: 0 0 10px rgba(255, 215, 0, 0.8);
+    }
+    100% {
+      text-shadow: 0 0 20px rgba(255, 215, 0, 1);
+    }
+  }
+
+  /* Tarjeta efecto vidrio */
+  .disco-card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 215, 0, 0.2);
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0px 0px 15px rgba(255, 215, 0, 0.3);
+  }
+
+  /* Botón con efecto de brillo */
+  .bg-gold {
+    background-color: #ffd700;
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.8);
+  }
+
+  .bg-gold-dark {
+    background-color: #ffa500;
+  }
+
+  .focus\:ring-gold:focus {
+    --tw-ring-color: rgba(255, 215, 0, 0.5);
+  }
+
+  /* Input focus */
+  input:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(255, 215, 0, 0.5);
+  }
+
+  /* Transición del mensaje de éxito */
+  .hidden {
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+  }
+
+  .show {
+    opacity: 1;
+  }
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const form = document.getElementById("abbaForm") as HTMLFormElement;
+    const emailInput = document.getElementById("email") as HTMLInputElement;
+    const emailError = document.getElementById("emailError");
+    const successMessage = document.getElementById("successMessage");
+    const errorMessage = document.createElement("div");
+    errorMessage.id = "errorMessage";
+    errorMessage.classList.add(
+      "hidden",
+      "mt-6",
+      "p-4",
+      "bg-red-100",
+      "text-red-700",
+      "rounded-lg",
+      "text-center"
+    );
+    errorMessage.textContent =
+      "Hubo un problema al enviar el formulario. Inténtalo de nuevo.";
+    form?.appendChild(errorMessage);
+
+    form?.addEventListener("submit", async (e) => {
+      e.preventDefault();
+
+      const email = emailInput?.value.trim();
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+      if (!emailRegex.test(email)) {
+        emailError?.classList.remove("hidden");
+        emailInput?.classList.add("border-red-500");
+        return;
+      }
+
+      emailError?.classList.add("hidden");
+      emailInput?.classList.remove("border-red-500");
+
+      const formData = new FormData(form);
+      try {
+        const response = await fetch(form.action, {
+          method: form.method,
+          body: formData,
+          headers: { Accept: "application/json" },
+        });
+
+        if (response.ok) {
+          // Mostrar mensaje de éxito
+          successMessage?.classList.remove("hidden");
+          successMessage?.classList.add("show");
+          errorMessage?.classList.add("hidden");
+
+          // Limpiar formulario después de 1 segundo
+          setTimeout(() => {
+            form?.reset();
+            successMessage?.classList.remove("show");
+            successMessage?.classList.add("hidden");
+          }, 5000);
+        } else {
+          errorMessage?.classList.remove("hidden");
+        }
+      } catch (error) {
+        errorMessage?.classList.remove("hidden");
+      }
+    });
+
+    emailInput?.addEventListener("input", () => {
+      emailError?.classList.add("hidden");
+      emailInput?.classList.remove("border-red-500");
+    });
+  });
+</script>
