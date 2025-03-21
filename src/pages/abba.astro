@@ -1,22 +1,23 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Footer from "../components/Footer.astro";
-import ScrollToTop from "../components/ScrollToTop.astro";
 ---
 
 <Layout title="ABBA Show - El Gastro Show">
   <div class="min-h-screen flex flex-col disco-bg">
-    <main class="flex-grow py-16">
-      <div class="container mx-auto px-4">
-        <div class="max-w-3xl mx-auto">
-          <div class="text-center mb-12">
-            <h1 class="text-6xl font-bold mb-6 abba-title">
-              Dancing Queen Night
-            </h1>
-            <p class="text-2xl text-gray-300 mb-8">
-              ¡Una noche mágica con la mejor música de ABBA!
-            </p>
-          </div>
+    <!-- Hero Section -->
+    <section
+      class="relative h-screen flex items-center justify-center overflow-hidden"
+    >
+      <div class="absolute inset-0 disco-overlay"></div>
+      <div class="container mx-auto px-4 relative z-10">
+        <div class="text-center">
+          <h1 class="text-7xl md:text-8xl font-bold mb-6 abba-title">
+            Dancing Queen Night
+          </h1>
+          <p class="text-2xl md:text-3xl text-gold mb-8 dancing-text">
+            ¡Una noche mágica con la mejor música de ABBA!
+          </p>
 
           <div
             class="bg-white/90 backdrop-blur-md rounded-2xl shadow-xl p-8 mb-12 disco-card"
@@ -30,7 +31,7 @@ import ScrollToTop from "../components/ScrollToTop.astro";
               <div>
                 <label
                   for="email"
-                  class="block text-lg font-medium text-gray-700 mb-2"
+                  class="block text-lg font-medium text-white mb-2"
                 >
                   Tu correo electrónico
                 </label>
@@ -64,7 +65,7 @@ import ScrollToTop from "../components/ScrollToTop.astro";
           </div>
         </div>
       </div>
-    </main>
+    </section>
     <Footer />
   </div>
 </Layout>
@@ -85,7 +86,23 @@ import ScrollToTop from "../components/ScrollToTop.astro";
     }
   }
 
-  /* Estilo del título */
+  .disco-overlay {
+    background:
+      linear-gradient(45deg, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.3) 100%),
+      url("./abba-bg.jpg") center/cover;
+    animation: slowZoom 20s infinite alternate;
+  }
+
+  @keyframes slowZoom {
+    from {
+      transform: scale(1);
+    }
+    to {
+      transform: scale(1.1);
+    }
+  }
+
+  /* Typography */
   .abba-title {
     font-family: "Poppins", sans-serif;
     background: linear-gradient(135deg, #ffd700 0%, #ffa500 100%);
@@ -93,8 +110,31 @@ import ScrollToTop from "../components/ScrollToTop.astro";
     -webkit-text-fill-color: transparent;
     letter-spacing: 2px;
     text-transform: uppercase;
-    text-shadow: 0 0 10px rgba(255, 215, 0, 0.8);
     animation: glow 1.5s infinite alternate;
+  }
+
+  .dancing-text {
+    font-family: "Poppins", sans-serif;
+    animation: float 3s ease-in-out infinite;
+  }
+
+  /* Disco ball effect */
+  .disco-ball {
+    position: absolute;
+    top: -100px;
+    left: 50%;
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(
+      circle at 50% 50%,
+      #fff 0%,
+      #ffd700 50%,
+      #ff8c00 100%
+    );
+    border-radius: 50%;
+    filter: blur(20px);
+    opacity: 0.5;
+    animation: rotate 10s linear infinite;
   }
 
   @keyframes glow {
@@ -114,6 +154,10 @@ import ScrollToTop from "../components/ScrollToTop.astro";
     position: relative;
     overflow: hidden;
     box-shadow: 0px 0px 15px rgba(255, 215, 0, 0.3);
+  }
+
+  .text-gold {
+    color: #ffd700;
   }
 
   /* Botón con efecto de brillo */
